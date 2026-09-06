@@ -155,7 +155,7 @@ export const INITIAL_REVIEWS: UserReview[] = [
       accommodation: 4.2,
       accessibility: 3.8
     },
-    comment: 'The Khardung La ride was life-changing! Make sure you take Diamox for AMS on day 1 in Leh. TRAVELX itinerary gave us exact fuel stop calculations which saved us in Nubra!',
+    comment: 'The Khardung La ride was life-changing! Make sure you take Diamox for AMS on day 1 in Leh. WanderX itinerary gave us exact fuel stop calculations which saved us in Nubra!',
     date: 'August 2026',
     helpfulCount: 42,
     travelerType: 'Group'
@@ -193,7 +193,7 @@ export const INITIAL_REVIEWS: UserReview[] = [
       accommodation: 4.0,
       accessibility: 3.5
     },
-    comment: 'Spiti Valley is like landing on Mars. Chandratal Lake camping in subzero night winds was pure magic. The elevation profile and packing list on TRAVELX were spot-on.',
+    comment: 'Spiti Valley is like landing on Mars. Chandratal Lake camping in subzero night winds was pure magic. The elevation profile and packing list on WanderX were spot-on.',
     date: 'August 2026',
     helpfulCount: 56,
     travelerType: 'Solo'

@@ -154,7 +154,7 @@ export default function HomePage() {
               &quot;Where Can I Travel With ₹10,000?&quot;
             </h2>
             <p className="text-sm text-slate-300 leading-relaxed">
-              Enter your budget, starting location, and traveler count. TRAVELX instantly segments results into 5 distinct categories: <strong>Best Match, Cheapest Option, Most Adventurous, Most Scenic, and Hidden Gem</strong> with an itemized breakdown.
+              Enter your budget, starting location, and traveler count. WanderX instantly segments results into 5 distinct categories: <strong>Best Match, Cheapest Option, Most Adventurous, Most Scenic, and Hidden Gem</strong> with an itemized breakdown.
             </p>
             <div className="pt-2 flex flex-wrap items-center gap-3">
               <Link

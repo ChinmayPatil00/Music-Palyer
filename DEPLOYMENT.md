@@ -1,12 +1,12 @@
-# 🚀 TRAVELX Deployment Guide
+# 🚀 WanderX Deployment Guide
 
-This guide walks you through deploying **TRAVELX** across different cloud platforms.
+This guide walks you through deploying **WanderX** across different cloud platforms.
 
 ---
 
 ## ⚡ Option 1: Vercel (Recommended — Fastest & Easiest)
 
-Because TRAVELX is built with Next.js App Router, **Vercel** provides instant zero-configuration deployment with edge caching and automatic SSL.
+Because WanderX is built with Next.js App Router, **Vercel** provides instant zero-configuration deployment with edge caching and automatic SSL.
 
 ### Steps:
 1. Go to [vercel.com](https://vercel.com) and sign in with your GitHub account.
@@ -34,7 +34,7 @@ Because TRAVELX is built with Next.js App Router, **Vercel** provides instant ze
 4. Netlify will detect Next.js:
    - **Build command**: `npm run build`
    - **Publish directory**: `.next`
-5. Click **"Deploy TRAVELX"**.
+5. Click **"Deploy WanderX"**.
 
 ---
 
@@ -55,7 +55,7 @@ Because TRAVELX is built with Next.js App Router, **Vercel** provides instant ze
 
 ## 🐳 Option 4: Docker Container (Any Cloud / VPS)
 
-TRAVELX includes a production multi-stage `Dockerfile` and `.dockerignore`.
+WanderX includes a production multi-stage `Dockerfile` and `.dockerignore`.
 
 ```bash
 # 1. Build the Docker container

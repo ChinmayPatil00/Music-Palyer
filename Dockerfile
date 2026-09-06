@@ -1,4 +1,4 @@
-﻿# Multi-stage production Dockerfile for TRAVELX
+﻿# Multi-stage production Dockerfile for WanderX
 FROM node:20-alpine AS base
 
 # Step 1: Install dependencies

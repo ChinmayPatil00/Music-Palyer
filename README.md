@@ -1,14 +1,14 @@
-# TRAVELX — Adventure Intelligence & Precision Trip Planner
+# WanderX — Adventure Intelligence & Precision Trip Planner
 
 > Built for trekkers, motorcyclists, road-trippers, backpackers, wildlife lovers, and budget-conscious explorers across India and around the world.
 
-![TRAVELX Interface](https://img.shields.io/badge/TRAVELX-Production_Ready-emerald) ![Next.js 15](https://img.shields.io/badge/Next.js-15_App_Router-black) ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue) ![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS_3.4-teal) ![Leaflet Maps](https://img.shields.io/badge/Maps-Leaflet_OpenStreetMap-green)
+![WanderX Interface](https://img.shields.io/badge/WanderX-Production_Ready-emerald) ![Next.js 15](https://img.shields.io/badge/Next.js-15_App_Router-black) ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue) ![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS_3.4-teal) ![Leaflet Maps](https://img.shields.io/badge/Maps-Leaflet_OpenStreetMap-green)
 
 ---
 
 ## 🧭 Overview
 
-**TRAVELX** is a modern adventure discovery and trip-planning web platform designed to eliminate the guesswork from budget travel and high-altitude exploration. Users input their origin, destination (or choose "Find destinations for me"), dates, headcount, funds, transport modes, and travel styles. 
+**WanderX** is a modern adventure discovery and trip-planning web platform designed to eliminate the guesswork from budget travel and high-altitude exploration. Users input their origin, destination (or choose "Find destinations for me"), dates, headcount, funds, transport modes, and travel styles. 
 
 The platform then calculates:
 - Ranked AI recommendations with a 5-factor **Match Score** (Budget, Adventure, Season, Difficulty, Travel Time)

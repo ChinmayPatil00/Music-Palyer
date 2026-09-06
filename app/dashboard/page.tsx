@@ -59,7 +59,7 @@ export default function UserDashboardPage() {
               </span>
             </div>
             <p className="text-xs text-slate-500">
-              chinmay@travelx.app • Home Base: Pune, India • 8 Expeditions Completed
+              chinmay@wanderx.app • Home Base: Pune, India • 8 Expeditions Completed
             </p>
           </div>
         </div>

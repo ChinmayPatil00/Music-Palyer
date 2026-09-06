@@ -50,7 +50,7 @@ export default function AdminDashboardPage() {
       country: 'India',
       isInternational: false,
       tagline: 'Custom Explorer Destination',
-      description: 'Newly added destination managed via TRAVELX Admin Command Center.',
+      description: 'Newly added destination managed via WanderX Admin Command Center.',
       heroImage: 'https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?auto=format&fit=crop&w=1000&q=80',
       gallery: [],
       startingPrice: Number(newPrice),
@@ -104,7 +104,7 @@ export default function AdminDashboardPage() {
         <div>
           <span className="text-xs font-bold uppercase tracking-wider text-emerald-600 flex items-center gap-1.5">
             <ShieldCheck className="h-4 w-4" />
-            TRAVELX Core Operations
+            WanderX Core Operations
           </span>
           <h1 className="text-3xl font-black text-slate-900 mt-1">Platform Admin Command Center</h1>
         </div>

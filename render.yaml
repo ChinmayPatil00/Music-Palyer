@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: travelx
+    name: wanderx
     runtime: node
     plan: free
     buildCommand: npm install && npm run build

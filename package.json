@@ -1,7 +1,7 @@
 {
-  "name": "travelx",
+  "name": "wanderx",
   "version": "1.0.0",
-  "description": "TRAVELX - Adventure Intelligence & Trip Planning Platform",
+  "description": "WanderX - Adventure Intelligence & Trip Planning Platform",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

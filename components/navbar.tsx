@@ -77,10 +77,10 @@ export default function Navbar() {
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-black tracking-tight text-slate-900 flex items-center gap-1">
-                TRAVEL<span className="text-emerald-600">X</span>
+                Wander<span className="text-emerald-600">X</span>
               </span>
               <span className="text-[10px] font-semibold tracking-wider text-slate-500 uppercase -mt-1">
-                TerraQuest Intelligence
+                Adventure Intelligence
               </span>
             </div>
           </Link>

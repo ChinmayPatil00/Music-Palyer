@@ -56,7 +56,7 @@ export default function InteractiveMap({
         // OpenStreetMap Outdoor / Standard tiles
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           maxZoom: 19,
-          attribution: '© OpenStreetMap contributors | TRAVELX Maps'
+          attribution: '© OpenStreetMap contributors | WanderX Maps'
         }).addTo(map);
 
         mapInstanceRef.current = map;

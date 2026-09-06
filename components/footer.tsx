@@ -29,11 +29,11 @@ export default function Footer() {
                 <Compass className="h-5 w-5" />
               </div>
               <span className="text-xl font-black text-white tracking-tight">
-                TRAVEL<span className="text-emerald-500">X</span>
+                Wander<span className="text-emerald-500">X</span>
               </span>
             </Link>
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
-              TRAVELX is a precision adventure intelligence and trip-planning platform. We engineer budget-conscious itineraries, high-altitude trail dossiers, overland road trips, and wildlife safari expeditions across India and the globe.
+              WanderX is a precision adventure intelligence and trip-planning platform. We engineer budget-conscious itineraries, high-altitude trail dossiers, overland road trips, and wildlife safari expeditions across India and the globe.
             </p>
             <div className="flex items-center gap-3 text-xs text-slate-400">
               <span className="flex items-center gap-1"><Shield className="h-3.5 w-3.5 text-emerald-400" /> Verified Routes</span>
@@ -78,7 +78,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-slate-800/80 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <p>© {new Date().getFullYear()} TRAVELX Technologies. Built for explorers, bikers, trekkers, and budget travelers.</p>
+          <p>© {new Date().getFullYear()} WanderX Technologies. Built for explorers, bikers, trekkers, and budget travelers.</p>
           <div className="flex items-center gap-4 text-xs">
             <span>Terms of Adventure</span>
             <span>Privacy Protocol</span>
