@@ -1,36 +1,90 @@
-# CyberDash
+# TRAVELX — Adventure Intelligence & Precision Trip Planner
 
-![CyberDash Interface](https://img.shields.io/badge/Status-Active-success) ![Vanilla JS](https://img.shields.io/badge/JavaScript-Vanilla-F7DF1E) ![Web Audio API](https://img.shields.io/badge/Web_Audio-API-blue)
+> Built for trekkers, motorcyclists, road-trippers, backpackers, wildlife lovers, and budget-conscious explorers across India and around the world.
 
-CyberDash is a highly interactive, sci-fi-themed web application that simulates a futuristic command terminal and telemetry dashboard. Built entirely with pure HTML, CSS, and Vanilla JavaScript, it demonstrates advanced front-end engineering techniques including state management, dynamic DOM manipulation, and native audio synthesis.
+![TRAVELX Interface](https://img.shields.io/badge/TRAVELX-Production_Ready-emerald) ![Next.js 15](https://img.shields.io/badge/Next.js-15_App_Router-black) ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue) ![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS_3.4-teal) ![Leaflet Maps](https://img.shields.io/badge/Maps-Leaflet_OpenStreetMap-green)
 
-## 🚀 Features
+---
 
-- **Anomaly Detection Mini-Game**: The Telemetry Dashboard features an interactive radar scanner. Unknown anomalies (blinking red dots) spawn dynamically at random coordinates. Users must click them before they disappear to collect data points.
-- **Interactive Command Line Interface (CLI)**: A fully functional terminal located in the Comms Log. Users can type operational commands (e.g., `/status`, `/ping`, `/override`) to retrieve simulated telemetry data and trigger environmental responses.
-- **Environmental State Engine**: Physical UI buttons are bound to the page's environment. Engaging features like "Shields" or "Floodlights" dynamically alters the atmospheric lighting and CSS rendering of the entire application.
-- **Synthetic Audio Generation**: All sound effects (beeps, clicks, sirens, clunks) are generated dynamically in real-time using the native browser **Web Audio API** oscillators—no external sound files required.
-- **Tactile Neumorphism**: The user interface relies heavily on advanced CSS Neumorphism, utilizing layered 3D shadowing to provide highly responsive tactile feedback.
-- **Fully Mobile Responsive**: CSS Media Queries ensure that the complex side-by-side dashboard layout stacks perfectly on mobile devices.
+## 🧭 Overview
 
-## 🛠️ Tech Stack
+**TRAVELX** is a modern adventure discovery and trip-planning web platform designed to eliminate the guesswork from budget travel and high-altitude exploration. Users input their origin, destination (or choose "Find destinations for me"), dates, headcount, funds, transport modes, and travel styles. 
 
-- **HTML5**: Semantic layout and structure.
-- **CSS3**: Variables, Flexbox, Media Queries, CSS Animations, Neumorphism (`box-shadow`), and Glassmorphism (`backdrop-filter`).
-- **Vanilla JavaScript (ES6)**: DOM manipulation, event listeners, intervals/timeouts, and CLI parsing.
-- **Web Audio API**: Real-time programmatic sound synthesis.
+The platform then calculates:
+- Ranked AI recommendations with a 5-factor **Match Score** (Budget, Adventure, Season, Difficulty, Travel Time)
+- **"Plan With My Budget"** (5 specialized result buckets: Best Match, Cheapest Option, Most Adventurous, Most Scenic, Hidden Gem)
+- Dedicated **Overland Road Trip Planner** with fuel burn and toll calculators
+- **Motorcycle Expedition Planner** with riding gear checklists, spare parts, and mechanic locators
+- **Trekking Hub** with interactive SVG Elevation Profile graphs, AMS altitude risk warnings, and packing checklists
+- **Jungle Safaris & Tiger Reserves** with wildlife checklists, booking seasons, and core zone guides
+- **Interactive Leaflet Route Maps** with category filters (Stays, Food, Fuel, Emergency)
+- **Day-by-Day Itinerary Builder & Editor** with draggable activities, itemized expense breakdowns, and clean PDF / Print export
+- **Active Safety Dossier** with verified emergency hotlines (112, 108), nearest medical centres, and police stations
+- **User & Admin Command Dashboards** with live analytics and content management
 
-## 🖥️ How to Run
+---
 
-Since CyberDash is built with vanilla web technologies, there is no build step or package installation required.
+## 🚀 Getting Started
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/ChinmayPatil00/CyberDash.git
-   ```
-2. Open the project folder.
-3. Simply double-click `index.html` to open it in any modern web browser.
+### Prerequisites
+- Node.js 18+ or 20+
+- npm 9+
 
-## 🎨 Design Philosophy
+### Installation & Local Run
 
-CyberDash was built to break away from traditional "flat" web design. By combining the physical, pressed-button feel of Neumorphism with the futuristic transparency of Glassmorphism, the interface feels like an actual piece of hardware. This is further enhanced by the immediate auditory feedback from the Web Audio API, creating an immersive, sensory-rich user experience.
+```bash
+# 1. Clone or navigate to the repository
+cd cyberdash_repo
+
+# 2. Install dependencies
+npm install
+
+# 3. Start development server
+npm run dev
+
+# 4. Or build and launch production server
+npm run build
+npm run start
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## 🛠️ Architecture & Tech Stack
+
+- **Frontend**: Next.js 15 (App Router), TypeScript, Tailwind CSS, Lucide Icons
+- **Maps**: Leaflet + OpenStreetMap with custom SVG markers and polyline routing
+- **Visualizations**: Custom SVG Elevation Profile visualizer, budget utilization meters
+- **State Management**: Client reactive state with `localStorage` persistence and Supabase integration ready
+- **API Endpoints**:
+  - `GET /api/destinations` — Filter and search destinations
+  - `POST /api/recommendations` — 5-factor AI ranking engine
+  - `GET /api/budget-match` — 5-tier budget matcher
+  - `POST /api/itinerary/generate` — Dynamic timetable generation
+  - `GET /api/weather` — Meteorological warnings & adventure safety
+
+---
+
+## 📱 Core Pages
+
+- `/` — Premium Landing Page with Hero Planning Card
+- `/plan` — 10-Step Multi-Stage Trip Planning Wizard
+- `/budget-finder` — "Where Can I Travel With ₹10,000?"
+- `/explore` — 16 Adventure Categories Directory
+- `/road-trips` — Overland Route Planner & Fuel Estimator
+- `/bike-trips` — Motorcycle Expeditions & Riding Gear Hub
+- `/treks` & `/treks/[slug]` — Treks Directory & SVG Elevation Profiles
+- `/safaris` — Wildlife & Tiger Reserves Hub
+- `/destinations/india` — Regional India Discovery (North, South, Western Ghats, Coastal, etc.)
+- `/destinations/international` — Affordable Global Expeditions
+- `/destinations/[slug]` — Destination Deep Dive with Weather, Stays & Safety
+- `/itinerary/generate` — Interactive Itinerary Customizer & Cost Calculator
+- `/dashboard` — User Dashboard (My Trips, Wishlist, Preferences)
+- `/admin` — Admin Command Center (Analytics & CRUD Tables)
+
+---
+
+## 🛡️ License
+
+ISC License. Built for explorers and travellers.
