@@ -50,6 +50,20 @@ export default function HeroSearchCard() {
     router.push(`/plan?${queryParams.toString()}`);
   };
 
+  const handleQuickDestinationPlan = (destName: string) => {
+    setDestination(destName);
+    const queryParams = new URLSearchParams({
+      from: fromLocation || 'Pune',
+      to: destName,
+      travelers: travelers.toString(),
+      budget: budget.toString(),
+      currency,
+      dep: departureDate,
+      ret: returnDate
+    });
+    router.push(`/plan?${queryParams.toString()}`);
+  };
+
   const handleFindForMe = () => {
     const queryParams = new URLSearchParams({
       from: fromLocation || 'Pune',
@@ -59,6 +73,18 @@ export default function HeroSearchCard() {
     });
     router.push(`/budget-finder?${queryParams.toString()}`);
   };
+
+  const QUICK_DESTINATIONS = [
+    { label: '🏔 Leh Ladakh', val: 'Leh Ladakh' },
+    { label: '🌌 Spiti Valley', val: 'Spiti Valley' },
+    { label: '🌊 Goa', val: 'Goa' },
+    { label: '🏖 Gokarna', val: 'Gokarna' },
+    { label: '❄️ Manali', val: 'Manali & Solang' },
+    { label: '🧗 Rishikesh', val: 'Rishikesh' },
+    { label: '🎒 Kasol', val: 'Kasol & Parvati' },
+    { label: '⛺ Rajmachi', val: 'Rajmachi & Lonavala' },
+    { label: '✈️ Bali', val: 'Bali' }
+  ];
 
   return (
     <div className="w-full max-w-5xl rounded-3xl bg-white/95 p-4 sm:p-6 shadow-2xl backdrop-blur-xl border border-white/60">
@@ -183,6 +209,28 @@ export default function HeroSearchCard() {
               />
             </div>
           </div>
+        </div>
+
+        {/* Quick Destination Pills */}
+        <div className="flex items-center gap-2 overflow-x-auto py-1 text-xs no-scrollbar">
+          <span className="font-bold text-slate-400 text-[11px] whitespace-nowrap uppercase tracking-wider flex items-center gap-1">
+            <Sparkles className="h-3 w-3 text-amber-500" />
+            Instant Plan:
+          </span>
+          {QUICK_DESTINATIONS.map((q) => (
+            <button
+              key={q.val}
+              type="button"
+              onClick={() => handleQuickDestinationPlan(q.val)}
+              className={`rounded-full border px-3 py-1 text-xs font-semibold whitespace-nowrap transition shadow-sm ${
+                destination === q.val
+                  ? 'border-emerald-600 bg-emerald-600 text-white shadow-emerald-500/20'
+                  : 'border-slate-200 bg-white/90 text-slate-700 hover:border-emerald-400 hover:bg-emerald-50/50'
+              }`}
+            >
+              {q.label}
+            </button>
+          ))}
         </div>
 
         {/* Action Buttons & "Not sure where to go?" banner */}

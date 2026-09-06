@@ -4,7 +4,7 @@ import React, { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { Sparkles, Calendar, ArrowLeft } from 'lucide-react';
-import { FullTrip } from '@/types';
+import { FullTrip, Destination } from '@/types';
 import { DESTINATIONS } from '@/data/destinations';
 import { TREKS } from '@/data/treks';
 import { calculateTripCosts } from '@/lib/cost-engine';
@@ -25,10 +25,66 @@ function ItineraryGeneratorContent() {
 
   useEffect(() => {
     // Find destination or trek
-    const dest =
+    let dest =
       DESTINATIONS.find((d) => d.id === destQuery || d.slug === destQuery) ||
-      DESTINATIONS.find((d) => d.name.toLowerCase().includes(destQuery.toLowerCase())) ||
-      DESTINATIONS[0];
+      DESTINATIONS.find((d) => d.name.toLowerCase().includes(destQuery.toLowerCase()));
+
+    if (!dest) {
+      const trekMatch =
+        TREKS.find((t) => t.id === destQuery || t.slug === destQuery) ||
+        TREKS.find((t) => t.title.toLowerCase().includes(destQuery.toLowerCase()));
+
+      if (trekMatch) {
+        dest = {
+          id: trekMatch.id,
+          slug: trekMatch.slug,
+          name: trekMatch.title,
+          region: (trekMatch.state?.includes('Maharashtra') ? 'Western Ghats' : 'Himalayas') as Destination['region'],
+          country: trekMatch.country || 'India',
+          state: trekMatch.state,
+          isInternational: false,
+          tagline: `${trekMatch.difficulty} Trek (${trekMatch.distanceKm}km, ${trekMatch.maxAltitudeM}m Altitude)`,
+          description: `High-adrenaline trek in ${trekMatch.location}. Best season: ${trekMatch.bestSeason}. Water: ${trekMatch.waterAvailability}. Network: ${trekMatch.mobileNetwork}. Starting point: ${trekMatch.startingPoint}.`,
+          heroImage: trekMatch.heroImage,
+          gallery: [trekMatch.heroImage],
+          startingPrice: trekMatch.costPerPerson,
+          idealDurationDays: trekMatch.durationDays,
+          difficulty: trekMatch.difficulty,
+          rating: 4.9,
+          reviewCount: 210,
+          bestSeason: trekMatch.bestSeason,
+          idealMonths: trekMatch.idealMonths || ['Oct', 'Nov', 'Dec', 'Jan', 'Feb'],
+          coordinates: trekMatch.coordinates,
+          categories: ['TREKKING', 'CAMPING', 'ADVENTURE'],
+          popularActivities: ['Summit Sunrise', 'Ridge Trekking', 'Temple Camp', 'Stargazing'],
+          travelStyles: ['Trekking', 'Camping', 'Mountains', 'Adventure Sports', 'Nature'],
+          transportOptions: ['Car', 'Bike', 'Bus'],
+          accommodationTypes: ['Camping', 'Homestay'],
+          safetyIndex: (trekMatch.amsRisk !== 'None' ? 'Extreme Caution' : 'Adventure Risk') as Destination['safetyIndex'],
+          emergencyFacilities: {
+            nearestHospital: `${trekMatch.startingPoint} Medical Center`,
+            hospitalContact: '108 / 112',
+            nearestPoliceStation: `${trekMatch.state} Police`,
+            policeContact: '100 / 112',
+            touristHelpline: '1363'
+          },
+          weatherSummary: {
+            currentTempC: 19,
+            condition: 'Crisp Mountain Breeze',
+            rainProbability: 10,
+            windSpeedKmh: 12,
+            humidity: 45,
+            suitability: 'Ideal'
+          },
+          highlights: trekMatch.packingList.slice(0, 4),
+          budgetTier: 'Budget'
+        };
+      }
+    }
+
+    if (!dest) {
+      dest = DESTINATIONS[0];
+    }
 
     const costs = calculateTripCosts(dest, daysCount, travelersCount);
 

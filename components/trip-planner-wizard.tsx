@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { 
   MapPin, 
@@ -150,6 +150,63 @@ export default function TripPlannerWizard({ initialParams }: WizardProps) {
     );
   };
 
+  const POPULAR_DESTINATIONS = [
+    { name: 'Leh Ladakh', region: 'Himalayas', icon: '🏔', price: '₹18,500+' },
+    { name: 'Spiti Valley', region: 'Himalayas', icon: '🌌', price: '₹14,500+' },
+    { name: 'Goa', region: 'Coastal India', icon: '🌊', price: '₹6,500+' },
+    { name: 'Gokarna', region: 'Coastal India', icon: '🏖', price: '₹4,200+' },
+    { name: 'Manali & Solang', region: 'North India', icon: '❄️', price: '₹6,500+' },
+    { name: 'Kasol & Parvati', region: 'North India', icon: '🎒', price: '₹4,800+' },
+    { name: 'Rishikesh', region: 'North India', icon: '🧗', price: '₹4,200+' },
+    { name: 'Rajmachi & Lonavala', region: 'Western Ghats', icon: '⚡', price: '₹2,400+' },
+    { name: 'Bhandardara & Sandhan', region: 'Western Ghats', icon: '🏕', price: '₹3,200+' },
+    { name: 'Coorg', region: 'Western Ghats', icon: '☕', price: '₹6,200+' },
+    { name: 'Wayanad & Chembra', region: 'Western Ghats', icon: '🌿', price: '₹5,800+' },
+    { name: 'Hampi', region: 'South India', icon: '🏛', price: '₹3,800+' },
+    { name: 'Chopta & Tungnath', region: 'Himalayas', icon: '🛕', price: '₹6,200+' },
+    { name: 'Jaisalmer & Thar', region: 'Desert India', icon: '🏜', price: '₹5,500+' },
+    { name: 'Bali (Indonesia)', region: 'International', icon: '✈️', price: '₹32,000+' },
+    { name: 'Vietnam (Ha Giang)', region: 'International', icon: '🏍', price: '₹28,000+' },
+  ];
+
+  const handleDirectDestinationPlan = (destName: string) => {
+    setDestinationText(destName);
+    setDestinationMode('specific');
+    setIsGenerating(true);
+
+    const req: TripPlanRequest = {
+      fromLocation,
+      destination: destName,
+      departureDate,
+      returnDate,
+      flexibleDates,
+      totalDays,
+      travelers: { adults, children, infants, partyType },
+      budget: { amount: budgetAmount, isPerPerson, currency },
+      travelStyles: selectedStyles,
+      difficulty,
+      transportModes: selectedTransports,
+      accommodationTypes: selectedAccommodations,
+      preferences: selectedPreferences
+    };
+
+    setTimeout(() => {
+      const recommendations = getRankedRecommendations(req);
+      setResults(recommendations);
+      setIsGenerating(false);
+      setTimeout(() => {
+        const el = document.getElementById('results-section');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }, 400);
+  };
+
+  useEffect(() => {
+    if (initialParams?.to && initialParams.to !== 'Anywhere' && initialParams.to.trim() !== '') {
+      handleDirectDestinationPlan(initialParams.to);
+    }
+  }, [initialParams?.to]);
+
   const handleGenerate = () => {
     setIsGenerating(true);
     const destination =
@@ -179,8 +236,11 @@ export default function TripPlannerWizard({ initialParams }: WizardProps) {
       const recommendations = getRankedRecommendations(req);
       setResults(recommendations);
       setIsGenerating(false);
-      window.scrollTo({ top: 350, behavior: 'smooth' });
-    }, 800);
+      setTimeout(() => {
+        const el = document.getElementById('results-section');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }, 600);
   };
 
   const nextStep = () => setCurrentStep((prev) => Math.min(totalSteps, prev + 1));
@@ -345,16 +405,163 @@ export default function TripPlannerWizard({ initialParams }: WizardProps) {
               </div>
 
               {destinationMode === 'specific' && (
-                <div className="pt-2 max-w-lg">
-                  <label className="text-xs font-bold text-slate-500 uppercase">Destination Name or State</label>
-                  <input
-                    type="text"
-                    value={destinationText}
-                    onChange={(e) => setDestinationText(e.target.value)}
-                    placeholder="e.g. Leh Ladakh, Gokarna, Kasol, Coorg"
-                    className="mt-1 w-full rounded-2xl border border-slate-300 p-3 text-sm font-semibold text-slate-900 focus:border-emerald-500 focus:outline-none"
-                    autoFocus
-                  />
+                <div className="space-y-4 pt-2">
+                  <div className="max-w-xl">
+                    <label className="text-xs font-bold text-slate-500 uppercase flex items-center justify-between">
+                      <span>Destination Name, Region, or Trek</span>
+                      {destinationText && (
+                        <button
+                          type="button"
+                          onClick={() => setDestinationText('')}
+                          className="text-[11px] font-semibold text-rose-600 hover:underline"
+                        >
+                          Clear
+                        </button>
+                      )}
+                    </label>
+                    <div className="relative mt-1">
+                      <MapPin className="absolute left-3.5 top-3.5 h-4 w-4 text-emerald-600" />
+                      <input
+                        type="text"
+                        value={destinationText}
+                        onChange={(e) => setDestinationText(e.target.value)}
+                        placeholder="e.g. Leh Ladakh, Spiti, Goa, Gokarna, Rajgad, Kasol, Bali"
+                        className="w-full rounded-2xl border border-slate-300 py-3 pl-10 pr-4 text-sm font-bold text-slate-900 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                        autoFocus
+                      />
+                    </div>
+                  </div>
+
+                  {/* Immediate Action Bar if destination is set */}
+                  {destinationText.trim() && (
+                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 p-4 rounded-2xl bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-50 border border-emerald-300 shadow-sm animate-fadeIn">
+                      <div className="flex items-center gap-3">
+                        <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-600 text-white font-bold text-lg shadow-sm">
+                          ⚡
+                        </span>
+                        <div>
+                          <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-800">
+                            Ready for Instant Planning
+                          </div>
+                          <div className="text-sm font-black text-slate-900">
+                            Adventure Plan for <span className="text-emerald-700">{destinationText}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <button
+                          type="button"
+                          onClick={() => handleDirectDestinationPlan(destinationText)}
+                          disabled={isGenerating}
+                          className="flex-1 sm:flex-initial flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 px-5 py-2.5 text-xs font-black text-white shadow-md shadow-emerald-600/30 hover:from-emerald-700 hover:to-teal-700 transition active:scale-95"
+                        >
+                          {isGenerating ? (
+                            <Sparkles className="h-4 w-4 animate-spin" />
+                          ) : (
+                            <Sparkles className="h-4 w-4" />
+                          )}
+                          <span>Plan {destinationText} Now 🚀</span>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={nextStep}
+                          className="flex items-center justify-center gap-1 rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-xs font-bold text-slate-700 hover:bg-slate-50 transition"
+                          title="Fine tune dates, budget and group"
+                        >
+                          <span>Next (Dates)</span>
+                          <ArrowRight className="h-3.5 w-3.5" />
+                        </button>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Quick Select Popular Adventures */}
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">
+                        ⚡ Quick Pick Popular Adventures (Click to select or plan instantly)
+                      </span>
+                      <span className="text-[11px] text-slate-400">1-Click Auto-Fill</span>
+                    </div>
+
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5 max-h-64 overflow-y-auto pr-1">
+                      {POPULAR_DESTINATIONS.map((dest) => {
+                        const isSelected =
+                          destinationText.toLowerCase().includes(dest.name.toLowerCase()) ||
+                          dest.name.toLowerCase().includes(destinationText.toLowerCase());
+
+                        return (
+                          <div
+                            key={dest.name}
+                            onClick={() => setDestinationText(dest.name)}
+                            className={`group relative rounded-2xl border p-2.5 text-left cursor-pointer transition flex flex-col justify-between ${
+                              isSelected
+                                ? 'border-emerald-600 bg-emerald-50/70 ring-2 ring-emerald-500/30'
+                                : 'border-slate-200 bg-slate-50/70 hover:bg-white hover:border-emerald-300'
+                            }`}
+                          >
+                            <div className="flex items-start justify-between gap-1">
+                              <span className="text-2xl">{dest.icon}</span>
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleDirectDestinationPlan(dest.name);
+                                }}
+                                className="text-[10px] font-bold text-emerald-700 bg-emerald-100 hover:bg-emerald-600 hover:text-white px-2 py-0.5 rounded-lg transition"
+                                title="Direct Plan"
+                              >
+                                Plan ⚡
+                              </button>
+                            </div>
+                            <div className="mt-2">
+                              <div className="font-bold text-slate-900 text-xs truncate group-hover:text-emerald-700">
+                                {dest.name}
+                              </div>
+                              <div className="flex items-center justify-between text-[10px] text-slate-500 mt-0.5">
+                                <span>{dest.region}</span>
+                                <span className="font-semibold text-slate-700">{dest.price}</span>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {destinationMode === 'budget' && (
+                <div className="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+                  <div>
+                    <div className="text-xs font-bold text-emerald-900 uppercase">Budget Optimization Active</div>
+                    <p className="text-xs text-slate-600">We will evaluate travel from {fromLocation} and rank all adventures fitting your funds.</p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleGenerate}
+                    className="flex items-center gap-2 rounded-xl bg-emerald-600 px-5 py-2.5 text-xs font-bold text-white shadow hover:bg-emerald-700 transition shrink-0"
+                  >
+                    <Sparkles className="h-4 w-4" />
+                    <span>Generate Best Budget Trips</span>
+                  </button>
+                </div>
+              )}
+
+              {destinationMode === 'surprise' && (
+                <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+                  <div>
+                    <div className="text-xs font-bold text-amber-900 uppercase">Mystery Adventure Mode</div>
+                    <p className="text-xs text-slate-600">Surprise me with thrilling off-grid trails, camping ridges, and coastal circuits.</p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleGenerate}
+                    className="flex items-center gap-2 rounded-xl bg-amber-600 px-5 py-2.5 text-xs font-bold text-white shadow hover:bg-amber-700 transition shrink-0"
+                  >
+                    <Sparkles className="h-4 w-4" />
+                    <span>Surprise Me With Hidden Gems</span>
+                  </button>
                 </div>
               )}
             </div>
@@ -865,7 +1072,37 @@ export default function TripPlannerWizard({ initialParams }: WizardProps) {
 
       {/* GENERATED RECOMMENDATION RESULTS */}
       {results && (
-        <div className="space-y-6 pt-6">
+        <div id="results-section" className="space-y-6 pt-6 scroll-mt-24">
+          {/* Active direct destination indicator banner */}
+          {destinationMode === 'specific' && destinationText && (
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 rounded-2xl bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-50 border border-emerald-300 p-4 shadow-sm">
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-600 text-white font-black text-lg shadow-sm">
+                  🎯
+                </div>
+                <div>
+                  <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-800">
+                    Precision Destination Plan Active
+                  </div>
+                  <div className="text-sm font-black text-slate-900">
+                    Tailored Adventure & Budget Itinerary for <span className="text-emerald-700 underline underline-offset-4">{destinationText}</span>
+                  </div>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  setCurrentStep(3);
+                  window.scrollTo({ top: 120, behavior: 'smooth' });
+                }}
+                className="text-xs font-bold text-emerald-800 bg-emerald-100/90 hover:bg-emerald-200 px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-sm"
+              >
+                <span>Customize Dates, Group & Budget</span>
+                <ChevronRight className="h-3.5 w-3.5" />
+              </button>
+            </div>
+          )}
+
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-slate-200 pb-4">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-emerald-600">
