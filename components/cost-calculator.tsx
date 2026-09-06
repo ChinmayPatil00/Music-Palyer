@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Wallet, PieChart, ShieldCheck, AlertCircle, RefreshCw } from 'lucide-react';
 import { CurrencyCode } from '@/types';
 import { formatPrice } from '@/lib/currency';
@@ -36,6 +36,25 @@ export default function CostCalculator({
   const [people, setPeople] = useState(travelersCount);
   const [costs, setCosts] = useState(initialCosts);
   const [viewMode, setViewMode] = useState<'total' | 'perPerson'>('total');
+
+  // Sync internal state if props change (e.g. user toggles transit mode)
+  useEffect(() => {
+    if (initialCosts) {
+      setCosts(initialCosts);
+    }
+  }, [initialCosts]);
+
+  useEffect(() => {
+    if (initialBudget) {
+      setBudgetLimit(initialBudget);
+    }
+  }, [initialBudget]);
+
+  useEffect(() => {
+    if (travelersCount) {
+      setPeople(travelersCount);
+    }
+  }, [travelersCount]);
 
   const updateCost = (key: keyof typeof costs, value: number) => {
     setCosts((prev) => ({ ...prev, [key]: Math.max(0, value) }));

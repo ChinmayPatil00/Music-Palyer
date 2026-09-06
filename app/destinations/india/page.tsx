@@ -52,7 +52,7 @@ export default function IndiaDestinationsPage() {
             key={reg}
             type="button"
             onClick={() => setSelectedRegion(reg)}
-            className={`rounded-full px-5 py-2.5 text-xs font-bold whitespace-nowrap transition ${
+            className={`rounded-full min-h-[44px] px-5 py-2.5 text-xs font-bold whitespace-nowrap transition ${
               selectedRegion === reg
                 ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/20'
                 : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-50'

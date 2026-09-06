@@ -119,13 +119,16 @@ export default function TransitPlanner({
       </div>
 
       {/* 5 Medium Selector Tabs */}
-      <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+      <div role="tablist" aria-label="Transit Mode Selection" className="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
         {transitOptions.map((opt) => {
           const isSelected = opt.medium === selectedMedium;
           return (
             <button
               key={opt.medium}
               type="button"
+              role="tab"
+              aria-selected={isSelected}
+              aria-label={`Select ${opt.medium} transit: ₹${opt.costPerPerson} per person`}
               onClick={() => setSelectedMedium(opt.medium)}
               className={`group flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl border transition-all text-center ${
                 isSelected

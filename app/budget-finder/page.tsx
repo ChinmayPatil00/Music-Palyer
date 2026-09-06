@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { 
   Wallet, 
   MapPin, 
@@ -21,26 +22,32 @@ import {
 import { getBudgetTravelBuckets, BudgetFinderCategories } from '@/lib/recommendation-engine';
 import { calculateTripCosts } from '@/lib/cost-engine';
 
-export default function BudgetFinderPage() {
-  const [fromCity, setFromCity] = useState('Pune');
-  const [budget, setBudget] = useState(10000);
-  const [people, setPeople] = useState(2);
-  const [days, setDays] = useState(3);
+function BudgetFinderContent() {
+  const searchParams = useSearchParams();
+  const initialFrom = searchParams.get('from') || 'Pune';
+  const initialBudget = Number(searchParams.get('budget')) || 10000;
+  const initialPeople = Number(searchParams.get('travelers')) || 2;
+  const initialDays = Number(searchParams.get('days')) || 3;
+
+  const [fromCity, setFromCity] = useState(initialFrom);
+  const [budget, setBudget] = useState(initialBudget);
+  const [people, setPeople] = useState(initialPeople);
+  const [days, setDays] = useState(initialDays);
   const [buckets, setBuckets] = useState<BudgetFinderCategories | null>(null);
   const [isSearching, setIsSearching] = useState(false);
 
-  const executeSearch = () => {
+  const executeSearch = (b = budget, f = fromCity, p = people, d = days) => {
     setIsSearching(true);
     setTimeout(() => {
-      const results = getBudgetTravelBuckets(budget, fromCity, people, days);
+      const results = getBudgetTravelBuckets(b, f, p, d);
       setBuckets(results);
       setIsSearching(false);
     }, 400);
   };
 
   useEffect(() => {
-    executeSearch();
-  }, []);
+    executeSearch(initialBudget, initialFrom, initialPeople, initialDays);
+  }, [initialBudget, initialFrom, initialPeople, initialDays]);
 
   const bucketCards = buckets
     ? [
@@ -221,7 +228,7 @@ export default function BudgetFinderPage() {
 
           <button
             type="button"
-            onClick={executeSearch}
+            onClick={() => executeSearch()}
             className="flex items-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 px-6 py-2.5 text-xs font-black text-white shadow-md shadow-emerald-600/20 hover:from-emerald-700 hover:to-teal-700 transition"
           >
             <span>Recalculate Adventures</span>
@@ -376,5 +383,13 @@ export default function BudgetFinderPage() {
         })}
       </div>
     </div>
+  );
+}
+
+export default function BudgetFinderPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-slate-50 py-20 text-center text-sm font-semibold text-slate-500">Loading Budget Travel Engine...</div>}>
+      <BudgetFinderContent />
+    </Suspense>
   );
 }

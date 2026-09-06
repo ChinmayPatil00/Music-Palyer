@@ -148,7 +148,7 @@ function ExploreContent() {
             key={cat}
             type="button"
             onClick={() => setSelectedCategory(cat)}
-            className={`flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-bold whitespace-nowrap transition shadow-sm ${
+            className={`flex items-center gap-1.5 rounded-full min-h-[44px] px-4 py-2 text-xs font-bold whitespace-nowrap transition shadow-sm ${
               selectedCategory.toUpperCase() === cat.toUpperCase()
                 ? 'bg-emerald-600 text-white shadow-emerald-600/30'
                 : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-50'

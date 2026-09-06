@@ -332,13 +332,16 @@ function ItineraryGeneratorContent() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+          <div role="tablist" aria-label="Itinerary Transit Mode Selection" className="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
             {availableTransits.map((opt) => {
               const isSelected = opt.medium === selectedTransport;
               return (
                 <button
                   key={opt.medium}
                   type="button"
+                  role="tab"
+                  aria-selected={isSelected}
+                  aria-label={`Select ${opt.medium} transit: ₹${opt.costPerPerson} per person`}
                   onClick={() => setSelectedTransport(opt.medium)}
                   className={`flex flex-col items-center justify-center p-3 rounded-2xl border transition-all text-center ${
                     isSelected

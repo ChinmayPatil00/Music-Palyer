@@ -13,6 +13,7 @@ import {
   Compass
 } from 'lucide-react';
 import { SAFARIS } from '@/data/safaris';
+import FallbackImage from '@/components/fallback-image';
 
 export default function SafarisPage() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -87,7 +88,7 @@ export default function SafarisPage() {
           >
             <div>
               <div className="relative h-52 w-full overflow-hidden bg-slate-900">
-                <img
+                <FallbackImage
                   src={safari.heroImage}
                   alt={safari.name}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -151,7 +152,7 @@ export default function SafarisPage() {
 
             <div className="p-5 pt-0">
               <Link
-                href={`/plan?to=${safari.name}`}
+                href={`/plan?to=${encodeURIComponent(safari.name)}`}
                 className="flex items-center justify-center gap-1.5 w-full rounded-xl bg-slate-900 py-2.5 text-xs font-bold text-white hover:bg-emerald-600 transition"
               >
                 <span>Plan Safari Trip</span>

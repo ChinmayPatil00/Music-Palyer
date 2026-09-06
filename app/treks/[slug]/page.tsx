@@ -19,6 +19,7 @@ import { TREKS } from '@/data/treks';
 import ElevationProfile from '@/components/elevation-profile';
 import SafetyDossier from '@/components/safety-dossier';
 import TransitPlanner from '@/components/transit-planner';
+import FallbackImage from '@/components/fallback-image';
 
 interface TrekDetailPageProps {
   params: Promise<{
@@ -38,7 +39,7 @@ export default async function TrekDetailPage({ params }: TrekDetailPageProps) {
     <div className="min-h-screen bg-slate-50 py-10 px-4 sm:px-6 lg:px-8 space-y-10">
       {/* Hero Header Banner */}
       <div className="mx-auto max-w-6xl rounded-3xl overflow-hidden shadow-2xl relative bg-slate-900 min-h-[360px] flex items-end">
-        <img
+        <FallbackImage
           src={trek.heroImage}
           alt={trek.title}
           className="absolute inset-0 h-full w-full object-cover opacity-60"
@@ -175,7 +176,7 @@ export default async function TrekDetailPage({ params }: TrekDetailPageProps) {
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                href="/plan"
+                href={`/plan?to=${encodeURIComponent(trek.title)}`}
                 className="w-full block rounded-2xl border border-slate-200 py-3 text-center text-xs font-bold text-slate-700 hover:bg-slate-50 transition"
               >
                 Customize Group Trip

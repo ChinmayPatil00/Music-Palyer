@@ -198,7 +198,17 @@ export default function BikeTripPlannerPage() {
             </div>
 
             <Link
-              href={`/itinerary/generate?dest=dest-ladakh&from=${selectedTrip.fromCity}&days=${selectedTrip.idealDays}&travelers=${riders}&style=Bike+Ride`}
+              href={`/itinerary/generate?dest=${
+                selectedTrip.toCity.toLowerCase().includes('leh')
+                  ? 'dest-ladakh'
+                  : selectedTrip.toCity.toLowerCase().includes('goa')
+                  ? 'dest-goa'
+                  : selectedTrip.toCity.toLowerCase().includes('kutch') || selectedTrip.toCity.toLowerCase().includes('desert')
+                  ? 'dest-jaisalmer'
+                  : selectedTrip.toCity.toLowerCase().includes('kolli')
+                  ? 'dest-coorg'
+                  : 'dest-ladakh'
+              }&from=${encodeURIComponent(selectedTrip.fromCity.split('/')[0].trim())}&transport=Bike&days=${selectedTrip.idealDays}&travelers=${riders}&style=Bike+Ride`}
               className="flex items-center gap-2 rounded-2xl bg-emerald-600 px-6 py-3 text-xs font-black text-white hover:bg-emerald-700 transition shadow-md shadow-emerald-600/20"
             >
               <span>Build Day-by-Day Ride Plan</span>

@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { Star, Heart, Clock, Compass, ArrowRight } from 'lucide-react';
 import { Destination } from '@/types';
 import { getFromStorage, setToStorage, STORAGE_KEYS } from '@/lib/utils';
+import FallbackImage from '@/components/fallback-image';
 
 interface DestinationCardProps {
   destination: Destination;
@@ -45,7 +46,7 @@ export default function DestinationCard({ destination }: DestinationCardProps) {
       <div>
         {/* Top Image Container with Badges */}
         <div className="relative h-56 w-full overflow-hidden bg-slate-900">
-          <img
+          <FallbackImage
             src={destination.heroImage}
             alt={destination.name}
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -134,7 +135,7 @@ export default function DestinationCard({ destination }: DestinationCardProps) {
         </Link>
         <button
           type="button"
-          onClick={() => router.push(`/plan?to=${destination.name}`)}
+          onClick={() => router.push(`/plan?to=${encodeURIComponent(destination.name)}`)}
           className="w-1/2 flex items-center justify-center gap-1 rounded-xl bg-emerald-600 py-2.5 text-xs font-bold text-white hover:bg-emerald-700 transition text-center shadow-sm"
         >
           <span>Plan Trip</span>

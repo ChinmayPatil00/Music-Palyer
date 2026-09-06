@@ -33,6 +33,8 @@ interface WizardProps {
     travelers?: string;
     budget?: string;
     currency?: string;
+    dep?: string;
+    ret?: string;
   };
 }
 
@@ -45,10 +47,41 @@ export default function TripPlannerWizard({ initialParams }: WizardProps) {
   const [fromLocation, setFromLocation] = useState(initialParams?.from || 'Pune');
   const [destinationMode, setDestinationMode] = useState<'specific' | 'surprise' | 'budget'>('specific');
   const [destinationText, setDestinationText] = useState(initialParams?.to || '');
-  const [departureDate, setDepartureDate] = useState('');
-  const [returnDate, setReturnDate] = useState('');
+  const [departureDate, setDepartureDate] = useState(initialParams?.dep || '');
+  const [returnDate, setReturnDate] = useState(initialParams?.ret || '');
   const [flexibleDates, setFlexibleDates] = useState(true);
   const [totalDays, setTotalDays] = useState(4);
+
+  const todayStr = new Date().toISOString().split('T')[0];
+
+  const handleDepartureChange = (val: string) => {
+    setDepartureDate(val);
+    if (returnDate && val > returnDate) {
+      setReturnDate(val);
+    }
+    if (val && returnDate) {
+      const diffTime = new Date(returnDate).getTime() - new Date(val).getTime();
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+      if (diffDays > 0) setTotalDays(Math.min(14, Math.max(1, diffDays)));
+    }
+  };
+
+  const handleReturnChange = (val: string) => {
+    setReturnDate(val);
+    if (departureDate && val) {
+      const diffTime = new Date(val).getTime() - new Date(departureDate).getTime();
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+      if (diffDays > 0) setTotalDays(Math.min(14, Math.max(1, diffDays)));
+    }
+  };
+
+  useEffect(() => {
+    if (initialParams?.dep && initialParams?.ret) {
+      const diffTime = new Date(initialParams.ret).getTime() - new Date(initialParams.dep).getTime();
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+      if (diffDays > 0) setTotalDays(Math.min(14, Math.max(1, diffDays)));
+    }
+  }, [initialParams?.dep, initialParams?.ret]);
 
   // Travelers Headcount
   const [adults, setAdults] = useState(Number(initialParams?.travelers) || 2);
@@ -580,18 +613,20 @@ export default function TripPlannerWizard({ initialParams }: WizardProps) {
                   <label className="text-xs font-bold text-slate-500 uppercase">Departure Date</label>
                   <input
                     type="date"
+                    min={todayStr}
                     value={departureDate}
-                    onChange={(e) => setDepartureDate(e.target.value)}
-                    className="mt-1 w-full rounded-2xl border border-slate-300 p-3 text-sm font-semibold text-slate-900 focus:border-emerald-500 focus:outline-none"
+                    onChange={(e) => handleDepartureChange(e.target.value)}
+                    className="mt-1 w-full rounded-2xl border border-slate-300 p-3 text-sm font-semibold text-slate-900 focus:border-emerald-500 focus:outline-none cursor-pointer"
                   />
                 </div>
                 <div>
                   <label className="text-xs font-bold text-slate-500 uppercase">Return Date</label>
                   <input
                     type="date"
+                    min={departureDate || todayStr}
                     value={returnDate}
-                    onChange={(e) => setReturnDate(e.target.value)}
-                    className="mt-1 w-full rounded-2xl border border-slate-300 p-3 text-sm font-semibold text-slate-900 focus:border-emerald-500 focus:outline-none"
+                    onChange={(e) => handleReturnChange(e.target.value)}
+                    className="mt-1 w-full rounded-2xl border border-slate-300 p-3 text-sm font-semibold text-slate-900 focus:border-emerald-500 focus:outline-none cursor-pointer"
                   />
                 </div>
               </div>

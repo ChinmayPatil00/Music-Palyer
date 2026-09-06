@@ -144,6 +144,7 @@ export default function HeroSearchCard() {
             </span>
             <input
               type="date"
+              min={new Date().toISOString().split('T')[0]}
               value={departureDate}
               onChange={(e) => setDepartureDate(e.target.value)}
               className="mt-1 w-full bg-transparent text-xs font-semibold text-slate-800 focus:outline-none cursor-pointer"

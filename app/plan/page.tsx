@@ -9,6 +9,8 @@ interface PlanPageProps {
     travelers?: string;
     budget?: string;
     currency?: string;
+    dep?: string;
+    ret?: string;
   }>;
 }
 

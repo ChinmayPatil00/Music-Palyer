@@ -326,7 +326,15 @@ export default function RoadTripPlannerPage() {
             <div className="border-t border-slate-100 pt-3 flex items-center justify-between text-xs text-slate-500">
               <span>Fuel Station Frequency: <strong className="text-slate-800">{selectedPreset.fuelStationFrequency}</strong></span>
               <Link
-                href={`/itinerary/generate?dest=dest-goa&from=${fromCity}&days=${selectedPreset.idealDays}&travelers=${travelers}`}
+                href={`/itinerary/generate?dest=${
+                  selectedPreset.toCity.toLowerCase().includes('leh')
+                    ? 'dest-ladakh'
+                    : selectedPreset.toCity.toLowerCase().includes('coorg')
+                    ? 'dest-coorg'
+                    : selectedPreset.toCity.toLowerCase().includes('jaipur') || selectedPreset.toCity.toLowerCase().includes('agra')
+                    ? 'dest-jaisalmer'
+                    : 'dest-goa'
+                }&from=${fromCity}&transport=Car&days=${selectedPreset.idealDays}&travelers=${travelers}`}
                 className="flex items-center gap-1 font-bold text-emerald-700 hover:underline"
               >
                 <span>Convert into full day-by-day itinerary</span>

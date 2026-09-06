@@ -20,6 +20,7 @@ import { DESTINATIONS } from '@/data/destinations';
 import InteractiveMap from '@/components/interactive-map';
 import SafetyDossier from '@/components/safety-dossier';
 import TransitPlanner from '@/components/transit-planner';
+import FallbackImage from '@/components/fallback-image';
 
 interface DestinationPageProps {
   params: Promise<{
@@ -49,7 +50,7 @@ export default async function DestinationDetailPage({ params }: DestinationPageP
     <div className="min-h-screen bg-slate-50 py-10 px-4 sm:px-6 lg:px-8 space-y-10">
       {/* Hero Banner */}
       <div className="mx-auto max-w-6xl rounded-3xl overflow-hidden shadow-2xl relative bg-slate-900 min-h-[400px] flex items-end">
-        <img
+        <FallbackImage
           src={destination.heroImage}
           alt={destination.name}
           className="absolute inset-0 h-full w-full object-cover opacity-60"
@@ -207,7 +208,7 @@ export default async function DestinationDetailPage({ params }: DestinationPageP
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                href={`/plan?to=${destination.name}`}
+                href={`/plan?to=${encodeURIComponent(destination.name)}`}
                 className="w-full block rounded-2xl border border-slate-200 py-3 text-center text-xs font-bold text-slate-700 hover:bg-slate-50 transition"
               >
                 Customize in Trip Wizard
