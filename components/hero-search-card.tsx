@@ -76,12 +76,14 @@ export default function HeroSearchCard() {
 
   const QUICK_DESTINATIONS = [
     { label: '🏔 Leh Ladakh', val: 'Leh Ladakh' },
+    { label: '🧗 Kalavantin Durg', val: 'Kalavantin Durg' },
     { label: '🌌 Spiti Valley', val: 'Spiti Valley' },
     { label: '🌊 Goa', val: 'Goa' },
     { label: '🏖 Gokarna', val: 'Gokarna' },
     { label: '❄️ Manali', val: 'Manali & Solang' },
     { label: '🧗 Rishikesh', val: 'Rishikesh' },
     { label: '🎒 Kasol', val: 'Kasol & Parvati' },
+    { label: '⛺ Sandhan Valley', val: 'Sandhan Valley' },
     { label: '⛺ Rajmachi', val: 'Rajmachi & Lonavala' },
     { label: '✈️ Bali', val: 'Bali' }
   ];

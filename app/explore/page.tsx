@@ -44,6 +44,36 @@ function ExploreContent() {
   const [maxBudget, setMaxBudget] = useState(100000);
   const [sortBy, setSortBy] = useState<'rating' | 'priceAsc' | 'priceDesc' | 'duration'>('rating');
 
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = { ALL: DESTINATIONS.length };
+    CATEGORIES.forEach((cat) => {
+      if (cat === 'ALL') return;
+      const sel = cat.toUpperCase();
+      const count = DESTINATIONS.filter((d) => {
+        if (sel === 'HIDDEN GEMS') return !!d.isLesserKnown;
+        if (sel === 'INTERNATIONAL ADVENTURES') return !!d.isInternational;
+        return d.categories.some((c) => {
+          const cUpper = c.toUpperCase();
+          return (
+            cUpper === sel ||
+            cUpper.includes(sel) ||
+            sel.includes(cUpper) ||
+            (sel === 'JUNGLE SAFARIS' && (cUpper.includes('SAFARI') || cUpper.includes('WILDLIFE'))) ||
+            (sel === 'WILDLIFE' && (cUpper.includes('WILDLIFE') || cUpper.includes('SAFARI'))) ||
+            (sel === 'WATER SPORTS' && (cUpper.includes('WATER') || cUpper.includes('SCUBA') || cUpper.includes('RAFTING'))) ||
+            (sel === 'DESERT ADVENTURES' && cUpper.includes('DESERT')) ||
+            (sel === 'BEACH ESCAPES' && cUpper.includes('BEACH')) ||
+            (sel === 'MOUNTAIN ESCAPES' && cUpper.includes('MOUNTAIN')) ||
+            (sel === 'ROAD TRIPS' && cUpper.includes('ROAD')) ||
+            (sel === 'BIKE RIDES' && (cUpper.includes('BIKE') || cUpper.includes('RIDE')))
+          );
+        });
+      }).length;
+      counts[cat] = count;
+    });
+    return counts;
+  }, []);
+
   const filteredDestinations = useMemo(() => {
     return DESTINATIONS.filter((d) => {
       // Search
@@ -62,7 +92,26 @@ function ExploreContent() {
       if (selectedCategory !== 'ALL') {
         if (selectedCategory === 'HIDDEN GEMS' && !d.isLesserKnown) return false;
         else if (selectedCategory === 'INTERNATIONAL ADVENTURES' && !d.isInternational) return false;
-        else if (!d.categories.some((c) => c.toUpperCase() === selectedCategory.toUpperCase())) return false;
+        else {
+          const sel = selectedCategory.toUpperCase();
+          const matches = d.categories.some((c) => {
+            const cat = c.toUpperCase();
+            return (
+              cat === sel ||
+              cat.includes(sel) ||
+              sel.includes(cat) ||
+              (sel === 'JUNGLE SAFARIS' && (cat.includes('SAFARI') || cat.includes('WILDLIFE'))) ||
+              (sel === 'WILDLIFE' && (cat.includes('WILDLIFE') || cat.includes('SAFARI'))) ||
+              (sel === 'WATER SPORTS' && (cat.includes('WATER') || cat.includes('SCUBA') || cat.includes('RAFTING'))) ||
+              (sel === 'DESERT ADVENTURES' && cat.includes('DESERT')) ||
+              (sel === 'BEACH ESCAPES' && cat.includes('BEACH')) ||
+              (sel === 'MOUNTAIN ESCAPES' && cat.includes('MOUNTAIN')) ||
+              (sel === 'ROAD TRIPS' && cat.includes('ROAD')) ||
+              (sel === 'BIKE RIDES' && (cat.includes('BIKE') || cat.includes('RIDE')))
+            );
+          });
+          if (!matches) return false;
+        }
       }
 
       // Region
@@ -99,13 +148,22 @@ function ExploreContent() {
             key={cat}
             type="button"
             onClick={() => setSelectedCategory(cat)}
-            className={`rounded-full px-4 py-2 text-xs font-bold whitespace-nowrap transition ${
+            className={`flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-bold whitespace-nowrap transition shadow-sm ${
               selectedCategory.toUpperCase() === cat.toUpperCase()
-                ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/20'
+                ? 'bg-emerald-600 text-white shadow-emerald-600/30'
                 : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-50'
             }`}
           >
-            {cat}
+            <span>{cat}</span>
+            <span
+              className={`rounded-full px-1.5 py-0.5 text-[10px] font-bold ${
+                selectedCategory.toUpperCase() === cat.toUpperCase()
+                  ? 'bg-emerald-700 text-white'
+                  : 'bg-slate-100 text-slate-500'
+              }`}
+            >
+              {categoryCounts[cat] ?? 0}
+            </span>
           </button>
         ))}
       </div>

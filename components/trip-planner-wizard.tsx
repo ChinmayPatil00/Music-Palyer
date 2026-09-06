@@ -151,19 +151,21 @@ export default function TripPlannerWizard({ initialParams }: WizardProps) {
   };
 
   const POPULAR_DESTINATIONS = [
+    { name: 'Kalavantin Durg', region: 'Western Ghats', icon: '🧗', price: '₹1,400+' },
     { name: 'Leh Ladakh', region: 'Himalayas', icon: '🏔', price: '₹18,500+' },
+    { name: 'Harihar Fort', region: 'Western Ghats', icon: '⛰', price: '₹1,300+' },
     { name: 'Spiti Valley', region: 'Himalayas', icon: '🌌', price: '₹14,500+' },
     { name: 'Goa', region: 'Coastal India', icon: '🌊', price: '₹6,500+' },
     { name: 'Gokarna', region: 'Coastal India', icon: '🏖', price: '₹4,200+' },
     { name: 'Manali & Solang', region: 'North India', icon: '❄️', price: '₹6,500+' },
     { name: 'Kasol & Parvati', region: 'North India', icon: '🎒', price: '₹4,800+' },
     { name: 'Rishikesh', region: 'North India', icon: '🧗', price: '₹4,200+' },
+    { name: 'Sandhan Valley', region: 'Western Ghats', icon: '🏕', price: '₹2,800+' },
+    { name: 'Kudremukh', region: 'Western Ghats', icon: '🌿', price: '₹3,200+' },
     { name: 'Rajmachi & Lonavala', region: 'Western Ghats', icon: '⚡', price: '₹2,400+' },
-    { name: 'Bhandardara & Sandhan', region: 'Western Ghats', icon: '🏕', price: '₹3,200+' },
     { name: 'Coorg', region: 'Western Ghats', icon: '☕', price: '₹6,200+' },
     { name: 'Wayanad & Chembra', region: 'Western Ghats', icon: '🌿', price: '₹5,800+' },
     { name: 'Hampi', region: 'South India', icon: '🏛', price: '₹3,800+' },
-    { name: 'Chopta & Tungnath', region: 'Himalayas', icon: '🛕', price: '₹6,200+' },
     { name: 'Jaisalmer & Thar', region: 'Desert India', icon: '🏜', price: '₹5,500+' },
     { name: 'Bali (Indonesia)', region: 'International', icon: '✈️', price: '₹32,000+' },
     { name: 'Vietnam (Ha Giang)', region: 'International', icon: '🏍', price: '₹28,000+' },
