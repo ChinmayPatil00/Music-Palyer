@@ -18,6 +18,7 @@ import {
 import { TREKS } from '@/data/treks';
 import ElevationProfile from '@/components/elevation-profile';
 import SafetyDossier from '@/components/safety-dossier';
+import TransitPlanner from '@/components/transit-planner';
 
 interface TrekDetailPageProps {
   params: Promise<{
@@ -136,6 +137,21 @@ export default async function TrekDetailPage({ params }: TrekDetailPageProps) {
               ))}
             </div>
           </div>
+
+          {/* Interactive Trailhead Transit & Dynamic Cost Planner */}
+          <TransitPlanner
+            destination={{
+              name: trek.title,
+              slug: trek.slug,
+              id: trek.id,
+              coordinates: trek.coordinates,
+              startingPrice: trek.costPerPerson
+            }}
+            baseStartingPrice={trek.costPerPerson}
+            initialDays={trek.durationDays}
+            initialTravelers={2}
+            isTrek={true}
+          />
         </div>
 
         {/* Right Column (4 Cols): Safety Dossier & Direct Actions */}
@@ -169,6 +185,7 @@ export default async function TrekDetailPage({ params }: TrekDetailPageProps) {
 
           {/* Live Safety Dossier */}
           <SafetyDossier
+            layout="sidebar"
             riskLevel={trek.difficulty === 'Extreme' ? 'Extreme Caution' : trek.difficulty === 'Difficult' ? 'Adventure Risk' : 'High Safety'}
             emergencyFacilities={{
               nearestHospital: `${trek.location} Community Health Care Centre`,

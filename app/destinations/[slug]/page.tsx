@@ -19,6 +19,7 @@ import {
 import { DESTINATIONS } from '@/data/destinations';
 import InteractiveMap from '@/components/interactive-map';
 import SafetyDossier from '@/components/safety-dossier';
+import TransitPlanner from '@/components/transit-planner';
 
 interface DestinationPageProps {
   params: Promise<{
@@ -175,6 +176,14 @@ export default async function DestinationDetailPage({ params }: DestinationPageP
               Condition: <strong>{destination.weatherSummary.condition}</strong>
             </p>
           </div>
+
+          {/* Interactive Transit Medium & Dynamic Itinerary Cost Explorer */}
+          <TransitPlanner
+            destination={destination}
+            baseStartingPrice={destination.startingPrice}
+            initialDays={destination.idealDurationDays}
+            initialTravelers={2}
+          />
         </div>
 
         {/* Right Column (4 Cols): Plan CTAs, Stays, and Safety Dossier */}
@@ -223,6 +232,7 @@ export default async function DestinationDetailPage({ params }: DestinationPageP
           <SafetyDossier
             riskLevel={destination.safetyIndex}
             emergencyFacilities={destination.emergencyFacilities}
+            layout="sidebar"
           />
         </div>
       </div>
