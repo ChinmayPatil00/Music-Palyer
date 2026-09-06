@@ -36,7 +36,7 @@ export default async function TrekDetailPage({ params }: TrekDetailPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 py-10 px-4 sm:px-6 lg:px-8 space-y-10">
+    <div className="min-h-screen bg-slate-50 py-6 sm:py-10 px-3 sm:px-6 lg:px-8 space-y-8 sm:space-y-10 pb-24 lg:pb-10">
       {/* Hero Header Banner */}
       <div className="mx-auto max-w-6xl rounded-3xl overflow-hidden shadow-2xl relative bg-slate-900 min-h-[360px] flex items-end">
         <FallbackImage
@@ -204,6 +204,35 @@ export default async function TrekDetailPage({ params }: TrekDetailPageProps) {
               guideRequired: trek.guideRequired
             }}
           />
+        </div>
+      </div>
+
+      {/* Sticky Mobile Floating Action Bar (< lg) */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-white/95 backdrop-blur-md border-t border-slate-200 p-3 shadow-2xl flex items-center justify-between gap-3">
+        <div>
+          <span className="text-[10px] font-bold text-slate-400 uppercase block">Expedition Cost</span>
+          <div className="flex items-baseline gap-1">
+            <span className="text-lg font-black text-emerald-700">
+              ₹{trek.costPerPerson.toLocaleString('en-IN')}
+            </span>
+            <span className="text-[10px] text-slate-500 font-medium">/ person</span>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <Link
+            href={`/plan?to=${encodeURIComponent(trek.title)}`}
+            className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-xs font-bold text-slate-700 hover:bg-slate-100 transition min-h-[44px] flex items-center justify-center"
+          >
+            Customize
+          </Link>
+          <Link
+            href={`/itinerary/generate?dest=${trek.slug}&from=Pune&days=${trek.durationDays}&travelers=2&style=Trekking`}
+            className="flex items-center gap-1.5 rounded-xl bg-emerald-600 px-4 py-2.5 text-xs font-black text-white hover:bg-emerald-700 transition shadow-md shadow-emerald-600/20 min-h-[44px]"
+          >
+            <span>Plan Trek</span>
+            <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
         </div>
       </div>
     </div>

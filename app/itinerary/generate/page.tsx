@@ -332,7 +332,7 @@ function ItineraryGeneratorContent() {
             </div>
           </div>
 
-          <div role="tablist" aria-label="Itinerary Transit Mode Selection" className="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+          <div role="tablist" aria-label="Itinerary Transit Mode Selection" className="flex sm:grid sm:grid-cols-5 gap-2 overflow-x-auto no-scrollbar pb-1">
             {availableTransits.map((opt) => {
               const isSelected = opt.medium === selectedTransport;
               return (
@@ -343,7 +343,7 @@ function ItineraryGeneratorContent() {
                   aria-selected={isSelected}
                   aria-label={`Select ${opt.medium} transit: ₹${opt.costPerPerson} per person`}
                   onClick={() => setSelectedTransport(opt.medium)}
-                  className={`flex flex-col items-center justify-center p-3 rounded-2xl border transition-all text-center ${
+                  className={`flex-shrink-0 min-w-[96px] sm:min-w-0 flex-1 flex flex-col items-center justify-center p-2.5 sm:p-3 rounded-2xl border transition-all text-center ${
                     isSelected
                       ? 'border-emerald-500 bg-emerald-50 text-emerald-950 ring-2 ring-emerald-500/20 font-black shadow-sm'
                       : 'border-slate-200 bg-slate-50/70 hover:bg-slate-100 text-slate-600 font-semibold'

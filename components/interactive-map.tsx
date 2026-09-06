@@ -160,11 +160,11 @@ export default function InteractiveMap({
   return (
     <div className="relative w-full rounded-3xl overflow-hidden border border-slate-200 bg-slate-100 shadow-md">
       {/* Map Category Filter Bar Overlay */}
-      <div className="absolute top-3 left-3 right-3 z-20 flex flex-wrap items-center gap-1.5 bg-white/90 backdrop-blur-md p-2 rounded-2xl border border-slate-200/80 shadow-md text-xs">
+      <div className="absolute top-3 left-3 right-3 z-20 flex items-center gap-1.5 overflow-x-auto no-scrollbar sm:flex-wrap bg-white/95 backdrop-blur-md p-1.5 sm:p-2 rounded-2xl border border-slate-200/80 shadow-md text-xs">
         <button
           type="button"
           onClick={() => setActiveFilter('all')}
-          className={`px-3 py-1.5 rounded-xl font-bold transition ${
+          className={`px-3 py-1.5 rounded-xl font-bold whitespace-nowrap shrink-0 transition ${
             activeFilter === 'all'
               ? 'bg-slate-900 text-white'
               : 'text-slate-700 hover:bg-slate-100'
@@ -175,7 +175,7 @@ export default function InteractiveMap({
         <button
           type="button"
           onClick={() => setActiveFilter('route')}
-          className={`flex items-center gap-1 px-3 py-1.5 rounded-xl font-bold transition ${
+          className={`flex items-center gap-1 px-3 py-1.5 rounded-xl font-bold whitespace-nowrap shrink-0 transition ${
             activeFilter === 'route'
               ? 'bg-emerald-600 text-white'
               : 'text-slate-700 hover:bg-slate-100'
@@ -187,7 +187,7 @@ export default function InteractiveMap({
         <button
           type="button"
           onClick={() => setActiveFilter('fuel')}
-          className={`flex items-center gap-1 px-3 py-1.5 rounded-xl font-bold transition ${
+          className={`flex items-center gap-1 px-3 py-1.5 rounded-xl font-bold whitespace-nowrap shrink-0 transition ${
             activeFilter === 'fuel'
               ? 'bg-amber-600 text-white'
               : 'text-slate-700 hover:bg-slate-100'
@@ -199,7 +199,7 @@ export default function InteractiveMap({
         <button
           type="button"
           onClick={() => setActiveFilter('hotel')}
-          className={`flex items-center gap-1 px-3 py-1.5 rounded-xl font-bold transition ${
+          className={`flex items-center gap-1 px-3 py-1.5 rounded-xl font-bold whitespace-nowrap shrink-0 transition ${
             activeFilter === 'hotel'
               ? 'bg-blue-600 text-white'
               : 'text-slate-700 hover:bg-slate-100'
@@ -211,7 +211,7 @@ export default function InteractiveMap({
         <button
           type="button"
           onClick={() => setActiveFilter('emergency')}
-          className={`flex items-center gap-1 px-3 py-1.5 rounded-xl font-bold transition ${
+          className={`flex items-center gap-1 px-3 py-1.5 rounded-xl font-bold whitespace-nowrap shrink-0 transition ${
             activeFilter === 'emergency'
               ? 'bg-red-600 text-white'
               : 'text-slate-700 hover:bg-slate-100'

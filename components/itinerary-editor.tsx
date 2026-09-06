@@ -223,13 +223,14 @@ export default function ItineraryEditor({ initialTrip }: ItineraryEditorProps) {
               </div>
 
               {/* Reorder & Action Buttons (Hidden in Print) */}
-              <div className="flex items-center gap-1 shrink-0 self-end sm:self-center no-print">
+              <div className="flex items-center gap-1.5 shrink-0 self-end sm:self-center no-print">
                 <button
                   type="button"
                   onClick={() => moveActivityUp(activeDayIndex, actIdx)}
                   disabled={actIdx === 0}
-                  className="rounded-lg border border-slate-200 bg-white p-1.5 text-slate-500 hover:bg-slate-100 disabled:opacity-30"
+                  className="rounded-xl border border-slate-200 bg-white p-2 min-w-[34px] min-h-[34px] flex items-center justify-center text-slate-500 hover:bg-slate-100 disabled:opacity-30 active:scale-95 transition"
                   title="Move Up"
+                  aria-label="Move activity up"
                 >
                   <ArrowUp className="h-3.5 w-3.5" />
                 </button>
@@ -237,16 +238,18 @@ export default function ItineraryEditor({ initialTrip }: ItineraryEditorProps) {
                   type="button"
                   onClick={() => moveActivityDown(activeDayIndex, actIdx)}
                   disabled={actIdx === activeDay.activities.length - 1}
-                  className="rounded-lg border border-slate-200 bg-white p-1.5 text-slate-500 hover:bg-slate-100 disabled:opacity-30"
+                  className="rounded-xl border border-slate-200 bg-white p-2 min-w-[34px] min-h-[34px] flex items-center justify-center text-slate-500 hover:bg-slate-100 disabled:opacity-30 active:scale-95 transition"
                   title="Move Down"
+                  aria-label="Move activity down"
                 >
                   <ArrowDown className="h-3.5 w-3.5" />
                 </button>
                 <button
                   type="button"
-                  onClick={() => deleteActivity(activeDayIndex, actIdx.toString())}
-                  className="rounded-lg border border-slate-200 bg-white p-1.5 text-red-500 hover:bg-red-50"
+                  onClick={() => deleteActivity(activeDayIndex, act.id)}
+                  className="rounded-xl border border-slate-200 bg-white p-2 min-w-[34px] min-h-[34px] flex items-center justify-center text-red-500 hover:bg-red-50 active:scale-95 transition"
                   title="Remove Activity"
+                  aria-label="Remove activity"
                 >
                   <Trash2 className="h-3.5 w-3.5" />
                 </button>

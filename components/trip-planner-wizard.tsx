@@ -278,19 +278,36 @@ export default function TripPlannerWizard({ initialParams }: WizardProps) {
     }, 600);
   };
 
-  const nextStep = () => setCurrentStep((prev) => Math.min(totalSteps, prev + 1));
-  const prevStep = () => setCurrentStep((prev) => Math.max(1, prev - 1));
+  const scrollToWizardTop = () => {
+    if (typeof window !== 'undefined') {
+      const el = document.getElementById('wizard-card');
+      if (el) {
+        const y = el.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }
+  };
+
+  const nextStep = () => {
+    setCurrentStep((prev) => Math.min(totalSteps, prev + 1));
+    scrollToWizardTop();
+  };
+
+  const prevStep = () => {
+    setCurrentStep((prev) => Math.max(1, prev - 1));
+    scrollToWizardTop();
+  };
 
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-8">
+    <div id="wizard-card" className="w-full max-w-5xl mx-auto space-y-6 sm:space-y-8">
       {/* Wizard Progress Bar Header */}
-      <div className="rounded-3xl bg-white p-6 shadow-xl border border-slate-200">
-        <div className="flex items-center justify-between mb-4">
+      <div className="rounded-3xl bg-white p-4 sm:p-6 shadow-xl border border-slate-200">
+        <div className="flex items-center justify-between mb-3 sm:mb-4">
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-emerald-600">
               Step {currentStep} of {totalSteps}
             </span>
-            <h2 className="text-xl font-black text-slate-900">
+            <h2 className="text-lg sm:text-xl font-black text-slate-900 leading-snug">
               {currentStep === 1 && 'Where are you starting from?'}
               {currentStep === 2 && 'Where do you want to explore?'}
               {currentStep === 3 && 'When are you travelling?'}
@@ -1059,27 +1076,31 @@ export default function TripPlannerWizard({ initialParams }: WizardProps) {
           )}
         </div>
 
-        {/* Wizard Controls Footer */}
-        <div className="flex items-center justify-between pt-6 border-t border-slate-100 mt-6">
+        {/* Wizard Controls Footer (Sticky on Mobile, Static on Desktop) */}
+        <div className="sticky bottom-0 sm:static bg-white/95 sm:bg-transparent backdrop-blur-md sm:backdrop-blur-none p-3 sm:p-0 pt-4 sm:pt-6 border-t border-slate-200 sm:border-slate-100 mt-6 flex items-center justify-between z-30 -mx-4 -mb-4 sm:mx-0 sm:mb-0 rounded-b-3xl sm:rounded-none shadow-lg sm:shadow-none">
           <button
             type="button"
             onClick={prevStep}
             disabled={currentStep === 1}
-            className={`flex items-center gap-1.5 rounded-xl px-4 py-2.5 text-xs font-bold transition ${
+            className={`flex items-center gap-1.5 rounded-xl px-4 py-2.5 text-xs font-bold transition min-h-[44px] ${
               currentStep === 1
                 ? 'opacity-0 pointer-events-none'
-                : 'border border-slate-200 text-slate-700 hover:bg-slate-50'
+                : 'border border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
             }`}
           >
             <ArrowLeft className="h-4 w-4" />
             <span>Back</span>
           </button>
 
+          <span className="text-[11px] font-bold text-slate-400 sm:hidden">
+            {currentStep}/{totalSteps}
+          </span>
+
           {currentStep < totalSteps ? (
             <button
               type="button"
               onClick={nextStep}
-              className="flex items-center gap-1.5 rounded-xl bg-slate-900 px-6 py-2.5 text-xs font-bold text-white hover:bg-slate-800 transition shadow-sm"
+              className="flex items-center gap-1.5 rounded-xl bg-slate-900 px-6 py-2.5 text-xs font-bold text-white hover:bg-slate-800 transition shadow-sm min-h-[44px]"
             >
               <span>Continue</span>
               <ArrowRight className="h-4 w-4" />
@@ -1089,17 +1110,17 @@ export default function TripPlannerWizard({ initialParams }: WizardProps) {
               type="button"
               onClick={handleGenerate}
               disabled={isGenerating}
-              className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 px-7 py-3 text-xs font-black text-white shadow-lg shadow-emerald-600/30 hover:from-emerald-700 hover:to-teal-700 transition"
+              className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 px-5 sm:px-7 py-3 text-xs font-black text-white shadow-lg shadow-emerald-600/30 hover:from-emerald-700 hover:to-teal-700 transition min-h-[44px]"
             >
               {isGenerating ? (
                 <>
                   <Sparkles className="h-4 w-4 animate-spin" />
-                  <span>Computing AI Match Scores...</span>
+                  <span>Computing...</span>
                 </>
               ) : (
                 <>
                   <Sparkles className="h-4 w-4" />
-                  <span>Generate My Adventure</span>
+                  <span>Generate Adventure</span>
                 </>
               )}
             </button>

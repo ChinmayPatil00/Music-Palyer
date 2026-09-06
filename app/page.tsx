@@ -54,7 +54,7 @@ export default function HomePage() {
   return (
     <div className="space-y-16 pb-20">
       {/* HERO SECTION */}
-      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-slate-950 pt-20 pb-24 px-4 sm:px-6 lg:px-8">
+      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-slate-950 pt-10 sm:pt-20 pb-14 sm:pb-24 px-3 sm:px-6 lg:px-8">
         {/* Background Image with dramatic gradient */}
         <div className="absolute inset-0 z-0">
           <img
@@ -66,22 +66,22 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-transparent to-slate-950/80" />
         </div>
 
-        <div className="relative z-10 mx-auto max-w-7xl flex flex-col items-center text-center space-y-8">
+        <div className="relative z-10 mx-auto max-w-7xl flex flex-col items-center text-center space-y-6 sm:space-y-8">
           {/* Top Pill */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-950/50 backdrop-blur-md px-4 py-1.5 text-xs font-bold text-emerald-400 shadow-lg">
+          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-950/50 backdrop-blur-md px-3.5 py-1 sm:px-4 sm:py-1.5 text-[11px] sm:text-xs font-bold text-emerald-400 shadow-lg">
             <Sparkles className="h-3.5 w-3.5 text-emerald-400" />
             <span>AI-Driven Precision Adventure Discovery & Trip Planning</span>
           </div>
 
           {/* Main Headline & Subtitle */}
-          <div className="max-w-4xl space-y-4">
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1]">
+          <div className="max-w-4xl space-y-3 sm:space-y-4">
+            <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black tracking-tight text-white leading-[1.15]">
               Your Next Adventure <br className="hidden sm:inline" />
               <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-300 bg-clip-text text-transparent">
                 Starts Here.
               </span>
             </h1>
-            <p className="mx-auto max-w-2xl text-base sm:text-lg text-slate-300 font-medium leading-relaxed">
+            <p className="mx-auto max-w-2xl text-xs sm:text-base lg:text-lg text-slate-300 font-medium leading-relaxed px-2">
               Discover treks, road trips, bike rides, safaris, hidden destinations and unforgettable experiences — planned around your budget, time and travel style.
             </p>
           </div>

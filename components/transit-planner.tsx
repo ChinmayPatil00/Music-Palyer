@@ -118,8 +118,12 @@ export default function TransitPlanner({
         </div>
       </div>
 
-      {/* 5 Medium Selector Tabs */}
-      <div role="tablist" aria-label="Transit Mode Selection" className="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+      {/* 5 Medium Selector Tabs (Scrollable on Mobile, Grid on Desktop) */}
+      <div
+        role="tablist"
+        aria-label="Transit Mode Selection"
+        className="flex sm:grid sm:grid-cols-5 gap-2 overflow-x-auto no-scrollbar pb-1"
+      >
         {transitOptions.map((opt) => {
           const isSelected = opt.medium === selectedMedium;
           return (
@@ -130,9 +134,9 @@ export default function TransitPlanner({
               aria-selected={isSelected}
               aria-label={`Select ${opt.medium} transit: ₹${opt.costPerPerson} per person`}
               onClick={() => setSelectedMedium(opt.medium)}
-              className={`group flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl border transition-all text-center ${
+              className={`group flex-shrink-0 min-w-[96px] sm:min-w-0 flex-1 flex flex-col items-center justify-center p-2.5 sm:p-4 rounded-2xl border transition-all text-center ${
                 isSelected
-                  ? 'border-emerald-500 bg-emerald-500/10 text-emerald-950 ring-2 ring-emerald-500/20 shadow-sm'
+                  ? 'border-emerald-500 bg-emerald-500/10 text-emerald-950 ring-2 ring-emerald-500/20 shadow-sm font-black'
                   : 'border-slate-200 bg-slate-50/70 hover:bg-slate-100 text-slate-600'
               }`}
             >

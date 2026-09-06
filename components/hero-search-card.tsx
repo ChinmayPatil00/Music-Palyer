@@ -161,18 +161,20 @@ export default function HeroSearchCard() {
               <span className="text-sm font-semibold text-slate-900">
                 {travelers} {travelers === 1 ? 'Solo' : 'People'}
               </span>
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-1.5">
                 <button
                   type="button"
                   onClick={() => setTravelers(Math.max(1, travelers - 1))}
-                  className="flex h-6 w-6 items-center justify-center rounded-md border border-slate-200 bg-white text-xs font-bold text-slate-700 hover:bg-slate-100"
+                  className="flex h-8 w-8 items-center justify-center rounded-xl border border-slate-200 bg-white text-sm font-black text-slate-700 hover:bg-slate-100 transition active:scale-95 shadow-sm"
+                  aria-label="Decrease travelers"
                 >
                   -
                 </button>
                 <button
                   type="button"
                   onClick={() => setTravelers(Math.min(15, travelers + 1))}
-                  className="flex h-6 w-6 items-center justify-center rounded-md border border-slate-200 bg-white text-xs font-bold text-slate-700 hover:bg-slate-100"
+                  className="flex h-8 w-8 items-center justify-center rounded-xl border border-slate-200 bg-white text-sm font-black text-slate-700 hover:bg-slate-100 transition active:scale-95 shadow-sm"
+                  aria-label="Increase travelers"
                 >
                   +
                 </button>
