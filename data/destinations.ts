@@ -293,9 +293,9 @@ export const DESTINATIONS: Destination[] = [
     isInternational: false,
     tagline: 'Abode of Clouds, Living Root Bridges and Emerald Canyons',
     description: 'Journey into ancient Khasi rainforests, discover bio-engineered double-decker living root bridges at Nongriat, kayak in the crystal-clear glass waters of Dawki River, and explore subterranean limestone caves.',
-    heroImage: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1686472886489-1d2d7e08ff9c?auto=format&fit=crop&w=1600&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1552978534-9d01e1f91517?auto=format&fit=crop&w=1000&q=80'
     ],
     startingPrice: 12000,
     idealDurationDays: 6,
@@ -339,9 +339,9 @@ export const DESTINATIONS: Destination[] = [
     isInternational: false,
     tagline: 'Pine Clad Pine Hills, Apatani Tribe Culture and Music In The Mist',
     description: 'A serene UNESCO tentative heritage valley celebrated for its gentle pine groves, terraced organic paddy fields, and the indigenous Apatani culture with iconic facial tattoos and bamboo architecture.',
-    heroImage: 'https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1786195620153-2094f284357d?auto=format&fit=crop&w=1600&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1777383504801-c891f48d6ad0?auto=format&fit=crop&w=1000&q=80'
     ],
     startingPrice: 13500,
     idealDurationDays: 5,
@@ -434,9 +434,9 @@ export const DESTINATIONS: Destination[] = [
     isInternational: false,
     tagline: 'Lake Arthur, Fireflies and the Valley of Shadows',
     description: 'A pristine eco-haven nestled around Arthur Lake and Mount Kalsubai. Home to Sandhan Valley — Asia’s second-largest rock canyon — and magical millions-strong pre-monsoon fireflies festivals.',
-    heroImage: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1749441186169-007e8bea484b?auto=format&fit=crop&w=1000&q=80'
     ],
     startingPrice: 3200,
     idealDurationDays: 2,
@@ -575,7 +575,7 @@ export const DESTINATIONS: Destination[] = [
     isInternational: false,
     tagline: 'Cliff-hugging Beach Treks and Untamed Arabian Sea Shores',
     description: 'The quieter, wilder sibling of Goa. Famous for its 5-beach cliff trek (Belekan, Paradise, Half Moon, Om, and Kudle), tranquil beach shacks, bioluminescent night waves, and Mahabaleshwar temple.',
-    heroImage: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1571324193649-a5cfe8a9a087?auto=format&fit=crop&w=1600&q=80',
     gallery: [
       'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=1000&q=80'
     ],
@@ -713,9 +713,9 @@ export const DESTINATIONS: Destination[] = [
     isInternational: false,
     tagline: 'Coffee Plantations, River Barapole Rapids and Tadiandamol Trails',
     description: 'Scotland of India. Carpeted with aromatic coffee and cardamom plantations, misty waterfalls like Abbey and Iruppu, whitewater river rafting at Barapole, and Karnataka’s highest peak trails.',
-    heroImage: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1785767117254-e4ac1494e062?auto=format&fit=crop&w=1600&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1779832242324-4a7d3355afb6?auto=format&fit=crop&w=1000&q=80'
     ],
     startingPrice: 6200,
     idealDurationDays: 3,
@@ -759,9 +759,9 @@ export const DESTINATIONS: Destination[] = [
     isInternational: false,
     tagline: 'The Grand Canyon of India and Subterranean Marvels',
     description: 'A magnificent gorge carved by the Pennar River cutting through the Erramala hills. Features a 12th-century stone fortress, cliffside camping, kayaking in the gorge, and the deepest subterranean chambers of Belum Caves.',
-    heroImage: 'https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1613017259680-9b04038b0323?auto=format&fit=crop&w=1600&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1763542282944-411e56a02e90?auto=format&fit=crop&w=1000&q=80'
     ],
     startingPrice: 3500,
     idealDurationDays: 2,
@@ -808,9 +808,9 @@ export const DESTINATIONS: Destination[] = [
     isInternational: false,
     tagline: 'The Golden City, Living Fort and Sam Sand Dunes Expeditions',
     description: 'Rising from the golden sands of the Thar desert. Sleep under unpolluted starry skies at desert camps, go dune bashing in 4x4s, ride camels across Sam dunes, and wander through the living Sonar Qila.',
-    heroImage: 'https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1616693139578-f1c17deb0d4f?auto=format&fit=crop&w=1600&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1697464026024-046547ebd141?auto=format&fit=crop&w=1000&q=80'
     ],
     startingPrice: 5500,
     idealDurationDays: 4,
@@ -856,9 +856,9 @@ export const DESTINATIONS: Destination[] = [
     isInternational: false,
     tagline: 'Pristine Turquoise Lagoons, Bioluminescent Mangroves and Scuba',
     description: 'An archipelago of white-sand atolls fringed by lush rainforests and pristine coral reefs. Radhanagar Beach (voted Asia’s best), night kayaking among glowing bioluminescent phytoplankton, and scuba diving at Elephant Beach.',
-    heroImage: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1586359716568-3e1907e4cf9f?auto=format&fit=crop&w=1600&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1000&q=80'
     ],
     startingPrice: 22000,
     idealDurationDays: 6,
@@ -1128,9 +1128,9 @@ export const DESTINATIONS: Destination[] = [
     isInternational: true,
     tagline: 'Budget European High Alpine Treks, Ancient Watchtowers & Wine',
     description: 'One of the world’s best-kept budget adventure secrets. Hike along the dramatic Georgian Military Highway to Gergeti Trinity Church below the towering 5,054m Mount Kazbek, explore Svaneti watchtowers, and savor Khachapuri.',
-    heroImage: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1577701122197-c9607038bd90?auto=format&fit=crop&w=1600&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1594766722982-fb4cd139ee7c?auto=format&fit=crop&w=1000&q=80'
     ],
     startingPrice: 38000,
     idealDurationDays: 7,
@@ -1175,10 +1175,10 @@ export const DESTINATIONS: Destination[] = [
     isInternational: false,
     tagline: '80° Basalt Rock-Cut Steps, 2,250ft Pinnacle & Prabalmachi Plateau',
     description: 'Known worldwide as one of the most thrilling and adventurous day treks in India. Climb the near-vertical rock-cut stairs with no railings carved into the pinnacle, camp under stars at Prabalmachi, and watch sunrise over Prabalgad and Matheran.',
-    heroImage: 'https://images.unsplash.com/photo-1596761223940-69230559e867?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1695211564991-9cf8f7a1d799?auto=format&fit=crop&w=1600&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1571536802807-30451e3955d8?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1663089554801-4562b8ea5388?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1596761223940-69230559e867?auto=format&fit=crop&w=1000&q=80'
     ],
     startingPrice: 1400,
     idealDurationDays: 2,
@@ -1222,8 +1222,9 @@ export const DESTINATIONS: Destination[] = [
     isInternational: false,
     tagline: 'Iconic 80-Degree Scottish Rock-Cut Staircase through Vertical Chimneys',
     description: 'Famous for its heart-pounding vertical climb through solid basalt rock with hand-notches carved centuries ago. Features an ancient rock-cut water cistern, Mahadev temple, and 360-degree panoramas of the Sahyadri range and Vaitarna reservoir.',
-    heroImage: 'https://images.unsplash.com/photo-1571536802807-30451e3955d8?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1663089554801-4562b8ea5388?auto=format&fit=crop&w=1600&q=80',
     gallery: [
+      'https://images.unsplash.com/photo-1695211564991-9cf8f7a1d799?auto=format&fit=crop&w=1000&q=80',
       'https://images.unsplash.com/photo-1596761223940-69230559e867?auto=format&fit=crop&w=1000&q=80'
     ],
     startingPrice: 1300,
@@ -1268,9 +1269,10 @@ export const DESTINATIONS: Destination[] = [
     isInternational: false,
     tagline: '200ft Deep Water-Carved Canyon Descent & Technical Rappelling',
     description: 'Often called the Grand Canyon of Maharashtra. A breathtaking gorge between giant mountain walls where sunlight barely touches the canyon floor. Trek through chest-deep natural pools and rappel down 3 sheer rock drops before camping under pure starlight.',
-    heroImage: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1761171489365-b2dee2b18cde?auto=format&fit=crop&w=1600&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1761171498921-6da3844ccfff?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1635547621163-047d89164573?auto=format&fit=crop&w=1000&q=80'
     ],
     startingPrice: 2800,
     idealDurationDays: 2,
@@ -1314,9 +1316,9 @@ export const DESTINATIONS: Destination[] = [
     isInternational: false,
     tagline: 'Rolling Shola Grasslands, Horse-Face Peak & Wildlife Sanctuary',
     description: 'Karnataka’s premier high-altitude rainforest trek. Walk through emerald green Shola meadows, cross pristine mountain rivers, and reach the 1,894m Horse-Face summit overlooking the cloud ocean of the Western Ghats.',
-    heroImage: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1593285942976-70dbd769a590?auto=format&fit=crop&w=1600&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1622725859789-8e9ccf920693?auto=format&fit=crop&w=1000&q=80'
     ],
     startingPrice: 3200,
     idealDurationDays: 2,
@@ -1360,9 +1362,9 @@ export const DESTINATIONS: Destination[] = [
     isInternational: false,
     tagline: 'Perennial Heart-Shaped Alpine Lake & Highest Wayanad Ridge',
     description: 'Hike through fragrant tea plantations into the cloud-covered heights of Wayanad to witness Hridaya Saras — a natural heart-shaped lake that has never gone dry. Combine with treehouse stays, bamboo rafting, and spice garden walks.',
-    heroImage: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1622725859789-8e9ccf920693?auto=format&fit=crop&w=1600&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1593285942976-70dbd769a590?auto=format&fit=crop&w=1000&q=80'
     ],
     startingPrice: 3800,
     idealDurationDays: 3,
@@ -1406,9 +1408,10 @@ export const DESTINATIONS: Destination[] = [
     isInternational: false,
     tagline: 'Extreme Winter Expedition Walking on Ice at -30°C in Zanskar Gorge',
     description: 'One of the ultimate adventure expeditions on planet Earth. Walk on sheets of blue ice along the frozen Zanskar river in a deep Himalayan canyon, marvel at the 50-foot frozen Naerak waterfall, and sleep in natural cave camps with indigenous Zanskari guides.',
-    heroImage: 'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1784169009016-94de2a93c611?auto=format&fit=crop&w=1600&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1701422337837-b4dc8548b1d9?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1772654818918-c9e94473b19e?auto=format&fit=crop&w=1000&q=80'
     ],
     startingPrice: 38000,
     idealDurationDays: 8,
@@ -1452,7 +1455,7 @@ export const DESTINATIONS: Destination[] = [
     isInternational: false,
     tagline: 'Lakeside Camping, Kayaking, Barbecue & Sunset Fort Panoramas',
     description: 'The favorite weekend adventure escape for Mumbai and Pune travelers. Pitch cozy lakeside dome tents by Pawna dam with views of Tikona, Lohagad, and Tung forts. Enjoy kayaking, paddleboarding, open-air movie screenings, and acoustic campfires.',
-    heroImage: 'https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1749441186169-007e8bea484b?auto=format&fit=crop&w=1600&q=80',
     gallery: [
       'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=80'
     ],
@@ -1498,9 +1501,9 @@ export const DESTINATIONS: Destination[] = [
     isInternational: false,
     tagline: 'World-Class Scuba Diving, Coral Reefs & Asia’s Best Radhanagar Beach',
     description: 'An archipelago paradise of powdery white sands, turquoise waters, and thriving coral reefs. Dive with manta rays, sea turtles, and clownfish, kayak through glowing bioluminescent night waters, and walk along Radhanagar Beach (voted Best Beach in Asia).',
-    heroImage: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1586359716568-3e1907e4cf9f?auto=format&fit=crop&w=1600&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1000&q=80'
     ],
     startingPrice: 22000,
     idealDurationDays: 5,
@@ -1544,9 +1547,9 @@ export const DESTINATIONS: Destination[] = [
     isInternational: false,
     tagline: 'Dramatic Red Laterite Sea Cliffs, Bohemian Cafes & Beach Surfing',
     description: 'The crown jewel of Kerala’s coastline. Towering red sandstone cliffs overlook the Arabian Sea, dotted with open-air reggae cafes, yoga ashrams, and surf schools. Relax in natural mineral springs and surf mellow breaks at Black Beach.',
-    heroImage: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1668518891186-c07180869132?auto=format&fit=crop&w=1600&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80'
     ],
     startingPrice: 6500,
     idealDurationDays: 3,
@@ -1590,9 +1593,9 @@ export const DESTINATIONS: Destination[] = [
     isInternational: false,
     tagline: 'Maharashtra’s Scuba Diving Capital, Sindhudurg Sea Fort & Water Sports',
     description: 'Clear azure coastal waters where you can scuba dive amidst live corals and tropical fish. Explore Chhatrapati Shivaji Maharaj’s mighty offshore sea fort of Sindhudurg, glide through Karli river backwaters, and feast on spicy Malvani seafood curry.',
-    heroImage: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1570367364062-4ab01ebf0954?auto=format&fit=crop&w=1600&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1000&q=80'
     ],
     startingPrice: 5200,
     idealDurationDays: 3,
@@ -1682,9 +1685,9 @@ export const DESTINATIONS: Destination[] = [
     isInternational: false,
     tagline: 'Grade IV Ganges River Rafting, 83m Bungee Jump & Beach Camping',
     description: 'India’s ultimate adventure playground. Tackle legendary Grade III and IV rapids on the holy Ganges like "Roller Coaster" and "Golf Course", leap from India’s highest 83-meter fixed bungee platform, and camp on white sand riverside beaches under starry Himalayan skies.',
-    heroImage: 'https://images.unsplash.com/photo-1530866495561-507c9faab2ed?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1594026634827-fe99c0a22e83?auto=format&fit=crop&w=1600&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1599443380179-33737c17ca81?auto=format&fit=crop&w=1000&q=80'
     ],
     startingPrice: 4200,
     idealDurationDays: 3,
@@ -1728,9 +1731,9 @@ export const DESTINATIONS: Destination[] = [
     isInternational: false,
     tagline: 'South Asia’s Only Dam-Controlled 365-Day White Water Rafting',
     description: 'The premier adrenaline day-out from Mumbai and Pune. When the Bhira dam gates open in the morning, the Kundalika river roars to life with Grade II and III rapids over 12 exciting kilometers. Combine with ziplining, river crossing, and farm glamping.',
-    heroImage: 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1599443380179-33737c17ca81?auto=format&fit=crop&w=1600&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1530866495561-507c9faab2ed?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1594026634827-fe99c0a22e83?auto=format&fit=crop&w=1000&q=80'
     ],
     startingPrice: 2200,
     idealDurationDays: 2,
@@ -1774,8 +1777,9 @@ export const DESTINATIONS: Destination[] = [
     isInternational: false,
     tagline: 'World Capital of the Great One-Horned Rhinoceros & Wild Elephants',
     description: 'A UNESCO World Heritage sanctuary along the mighty Brahmaputra river. Inhabited by two-thirds of the world’s population of the prehistoric Great Indian One-Horned Rhinoceros, along with wild water buffaloes, Asian elephants, swamp deer, and Royal Bengal Tigers.',
-    heroImage: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1588014307443-64aba3db6a07?auto=format&fit=crop&w=1600&q=80',
     gallery: [
+      'https://images.unsplash.com/photo-1763879183540-e314fd265875?auto=format&fit=crop&w=1000&q=80',
       'https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=1000&q=80'
     ],
     startingPrice: 12500,
@@ -1820,9 +1824,10 @@ export const DESTINATIONS: Destination[] = [
     isInternational: false,
     tagline: 'The Only Natural Habitat of the Wild Asiatic Lion in the World',
     description: 'The sole remaining refuge of the majestic Panthera leo persica (Asiatic Lion) on Earth. Embark on rugged open-top Gypsy safaris across teak forests, scrublands, and rocky ravines to track pride kings, leopards, spotted deer, and marsh crocodiles.',
-    heroImage: 'https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1585171274582-fd037dd30ea8?auto=format&fit=crop&w=1600&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1551810716-780d8adb6529?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1758423705774-0805b7049f03?auto=format&fit=crop&w=1000&q=80'
     ],
     startingPrice: 11000,
     idealDurationDays: 3,
@@ -1866,9 +1871,10 @@ export const DESTINATIONS: Destination[] = [
     isInternational: false,
     tagline: 'Maharashtra’s Oldest & Most Populous Tiger Haven',
     description: 'Renowned among wildlife photographers worldwide for having the highest density of Royal Bengal Tigers in central India. Spot legendary tigresses with cubs near Tadoba lake, sloth bears feeding on anthills, and wild dogs (dholes) hunting in packs.',
-    heroImage: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1586618749351-8b86b75c5320?auto=format&fit=crop&w=1600&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1586617356423-52763004deac?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1698382439843-ca033a6079c0?auto=format&fit=crop&w=1000&q=80'
     ],
     startingPrice: 13500,
     idealDurationDays: 3,
@@ -1912,9 +1918,10 @@ export const DESTINATIONS: Destination[] = [
     isInternational: false,
     tagline: 'Legendary Habitat of the Black Panther, Big Cats & River Elephants',
     description: 'One of the most biologically diverse national parks in the Nilgiri Biosphere Reserve. Famous for sightings of the rare melanistic Black Panther (Saya), majestic leopard pairs lounging on tree branches, and massive herds of Asian elephants grazing along the Kabini river bank.',
-    heroImage: 'https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1615887734056-e2815e87ef70?auto=format&fit=crop&w=1600&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1586618749351-8b86b75c5320?auto=format&fit=crop&w=1000&q=80'
     ],
     startingPrice: 18000,
     idealDurationDays: 3,
@@ -1958,9 +1965,9 @@ export const DESTINATIONS: Destination[] = [
     isInternational: false,
     tagline: 'Infinite White Salt Desert, Rann Utsav Tent City & Moonlit Safaris',
     description: 'A surreal landscape of sparkling white salt plains stretching to the horizon. Experience the vibrant culture of Kutchi artisans, ride decorated camels under a full moon night on the salt crust, stay in royal luxury tents at Dhordo, and explore Kala Dungar (Black Hill).',
-    heroImage: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1780681425880-153fcf37a392?auto=format&fit=crop&w=1600&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1616693139578-f1c17deb0d4f?auto=format&fit=crop&w=1000&q=80'
     ],
     startingPrice: 9500,
     idealDurationDays: 3,
